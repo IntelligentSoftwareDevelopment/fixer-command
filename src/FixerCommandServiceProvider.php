@@ -1,8 +1,9 @@
 <?php
 
-namespace IntelligentSoftwareDevelopment\IdeHelperCommand;
+namespace IntelligentSoftwareDevelopment\FixerCommand;
 
 use Illuminate\Support\ServiceProvider;
+use IntelligentSoftwareDevelopment\FixerCommand\Console\Commands\RunFixerCommand;
 
 class FixerCommandServiceProvider extends ServiceProvider
 {
@@ -11,11 +12,13 @@ class FixerCommandServiceProvider extends ServiceProvider
         if ($this->app->isLocal()) {
             $this->registerCommands();
         }
+        $this->publishes([
+            __DIR__ . '/.php-cs-fixer.dist.php' => base_path('.php-cs-fixer.dist.php')
+        ]);
     }
 
     public function boot(): void
     {
-
     }
 
     /**
@@ -27,6 +30,7 @@ class FixerCommandServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
+                RunFixerCommand::class,
             ]);
         }
     }
@@ -39,6 +43,7 @@ class FixerCommandServiceProvider extends ServiceProvider
     public function provides(): array
     {
         return [
+            RunFixerCommand::class,
         ];
     }
 }

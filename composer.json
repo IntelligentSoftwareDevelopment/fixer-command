@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Isoftd\\FixerCommand\\": "src/"
+            "IntelligentSoftwareDevelopment\\FixerCommand\\": "src/"
         }
     },
     "authors": [
@@ -14,6 +14,15 @@
             "email": "ins0mniac1van@gmail.com"
         }
     ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "IntelligentSoftwareDevelopment\\FixerCommand\\FixerCommandServiceProvider"
+            ]
+        }
+    },
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "friendsofphp/php-cs-fixer": "^3.16"
+    }
 }
