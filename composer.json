@@ -1,0 +1,19 @@
+{
+    "name": "isoftd/fixer-command",
+    "description": "Laravel command to run php fixer",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Isoftd\\FixerCommand\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ivan Rusev",
+            "email": "ins0mniac1van@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
